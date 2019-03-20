@@ -1,0 +1,45 @@
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerPad {
+  padding: 24px;
+}
+
+.myColor .mat-expansion-panel-header[aria-disabled=true] {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: rgb(188, 206, 226);
+}
+
+.bBold {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.highlightColor{
+  background-color: rgb(184, 183, 243);
+}
+
+.example-form {
+  min-width: 60px;
+  max-width: 150px;
+  width: 100%;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+/* .example-full-width {
+  width: 100%;
+} */
+
+.myFont {
+  font-size: medium;
+  margin-left: inherit;
+}
+

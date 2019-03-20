@@ -1,0 +1,64 @@
+<div class="example-form myFont">
+	<mat-form-field>
+		<input #searchbox id="search-box" matInput placeholder="Search by Country" [(ngModel)]="searchTerm" />
+	</mat-form-field>
+</div>
+<mat-accordion class="headers-align">
+	<mat-expansion-panel disabled="true" hideToggle class="myColor">
+		<mat-expansion-panel-header class="bBold">
+			<mat-panel-title>Favorites</mat-panel-title>
+			<mat-panel-title>Country</mat-panel-title>
+			<mat-panel-title>Capital</mat-panel-title>
+			<mat-panel-title>Region</mat-panel-title>
+		</mat-expansion-panel-header>
+	</mat-expansion-panel>
+	<mat-expansion-panel class="search-result" *ngFor="let country of (countries | countryFilter: searchTerm)">
+		<mat-expansion-panel-header collapsedHeight="auto" class="headerPad" [ngClass]="country.toggle ? 'highlightColor' : ''">
+			<mat-panel-title>
+				<mat-slide-toggle id="normal-slide-toggle" [(ngModel)]="country.toggle"></mat-slide-toggle>
+			</mat-panel-title>
+			<mat-panel-title>
+				<img [src]= country.flag style="width: 35px; height: 20px; padding-right: 5px">{{ country.name }}</mat-panel-title>
+			<mat-panel-title>{{ country.capital }}</mat-panel-title>
+			<mat-panel-title>{{ country.region }}</mat-panel-title>
+		</mat-expansion-panel-header>
+		
+		<mat-card>
+			<div fxLayout="row">
+				<div [fxLayout]="direction" fxLayout.xs="column" fxFlex>
+					<div fxFlex="1 1 25%">
+						<mat-list>
+							<mat-list-item>Subregion: {{ country.subregion }}</mat-list-item>
+							<mat-divider></mat-divider>
+							<mat-list-item>Population: {{ country.population }}</mat-list-item>
+							<mat-divider></mat-divider>
+						</mat-list>
+					</div>
+					<div fxFlex="1 1 25%">
+						<mat-list>
+							<mat-list-item>Coordinates: {{ country.latlng }}</mat-list-item>
+							<mat-divider></mat-divider>
+							<mat-list-item>Demonym: {{ country.demonym }}</mat-list-item>
+							<mat-divider></mat-divider>
+						</mat-list>
+					</div>
+					<div fxFlex="1 1 25%">
+						<mat-list>
+							<mat-list-item>Area: {{ country.area }}</mat-list-item>
+							<mat-divider></mat-divider>
+							<mat-list-item>Timezones: {{ country.timezones }}</mat-list-item>
+							<mat-divider></mat-divider>
+						</mat-list>
+					</div>
+					<div fxFlex="1 1 25%">
+						<mat-list>
+							<mat-list-item>Languages: {{ country.languages[0].name }}</mat-list-item>
+							<mat-divider></mat-divider>
+							<mat-list-item>Currencies: ({{ country.currencies[0].symbol }}) {{ country.currencies[0].name }}</mat-list-item>
+						</mat-list>
+					</div>
+				</div>
+			</div>
+		</mat-card>
+	</mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,13 @@
+<div [class.alternative]="otherTheme">
+	<mat-toolbar color="primary">
+		<mat-toolbar-row> <span>Assignment- Ekow Baah-Nyarkoh</span>
+			<span class="example-spacer"></span>
+			<button id='colour-change' mat-mini-fab color="accent" (click)="changeTheme()">
+				<mat-icon aria-label="Example icon-button with a heart icon">invert_colors</mat-icon>
+			</button>
+		</mat-toolbar-row>
+	</mat-toolbar>
+	<div>
+		<app-country-list></app-country-list>
+	</div>
+</div>
